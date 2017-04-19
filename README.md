@@ -1,9 +1,14 @@
-# api documentation for  [hyperline (v0.6.1)](https://github.com/NickTikhonov/hyperterm-hyperline#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-hyperline.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-hyperline) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-hyperline.svg)](https://travis-ci.org/npmdoc/node-npmdoc-hyperline)
+# npmdoc-hyperline
+
+#### api documentation for  [hyperline (v0.6.1)](https://github.com/NickTikhonov/hyperterm-hyperline#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-hyperline.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-hyperline) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-hyperline.svg)](https://travis-ci.org/npmdoc/node-npmdoc-hyperline)
+
 #### Handy status line for Hyper.app
 
-[![NPM](https://nodei.co/npm/hyperline.png?downloads=true)](https://www.npmjs.com/package/hyperline)
+[![NPM](https://nodei.co/npm/hyperline.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/hyperline)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-hyperline/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-hyperline_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-hyperline/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-hyperline/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-hyperline/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-hyperline/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-hyperline/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-hyperline/build/screenCapture.npmPackageListing.svg)
 
@@ -61,13 +66,11 @@
     "main": "dist/hyperline.js",
     "maintainers": [
         {
-            "name": "nicktikhonov",
-            "email": "nt34@st-andrews.ac.uk"
+            "name": "nicktikhonov"
         }
     ],
     "name": "hyperline",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/NickTikhonov/hyperterm-hyperline.git"
@@ -78,128 +81,6 @@
     },
     "version": "0.6.1"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module hyperline](#apidoc.module.hyperline)
-1.  [function <span class="apidocSignatureSpan">hyperline.</span>decorateHyper (Hyper, _ref4)](#apidoc.element.hyperline.decorateHyper)
-1.  [function <span class="apidocSignatureSpan">hyperline.</span>mapHyperState (_ref3, map)](#apidoc.element.hyperline.mapHyperState)
-1.  [function <span class="apidocSignatureSpan">hyperline.</span>reduceUI (state, _ref2)](#apidoc.element.hyperline.reduceUI)
-
-
-
-# <a name="apidoc.module.hyperline"></a>[module hyperline](#apidoc.module.hyperline)
-
-#### <a name="apidoc.element.hyperline.decorateHyper"></a>[function <span class="apidocSignatureSpan">hyperline.</span>decorateHyper (Hyper, _ref4)](#apidoc.element.hyperline.decorateHyper)
-- description and source-code
-```javascript
-function decorateHyper(Hyper, _ref4) {
-	  var React = _ref4.React;
-	  var notify = _ref4.notify;
-	  var Component = React.Component;
-	  var PropTypes = React.PropTypes;
-
-	  var HyperLine = (0, _hyperline.hyperlineFactory)(React);
-
-	  return function (_Component) {
-	    _inherits(_class, _Component);
-
-	    _createClass(_class, null, [{
-	      key: 'displayName',
-	      value: function displayName() {
-	        return 'Hyper';
-	      }
-	    }, {
-	      key: 'propTypes',
-	      value: function propTypes() {
-	        return {
-	          colors: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-	          fontFamily: PropTypes.string,
-	          style: PropTypes.object,
-	          hyperline: PropTypes.object
-	        };
-	      }
-	    }]);
-
-	    function _class(props, context) {
-	      _classCallCheck(this, _class);
-
-	      var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(_class).call(this, props, context));
-
-	      _this.colors = (0, _colors.getColorList)(props.colors);
-
-	      var defaultConfig = (0, _config.getDefaultConfig)(_plugins2.default);
-	      var mergedConfig = (0, _config.mergeConfigs)(defaultConfig, props.hyperline, notify);
-
-	      _this.plugins = mapConfigToPluginProp(mergedConfig);
-	      return _this;
-	    }
-
-	    _createClass(_class, [{
-	      key: 'render',
-	      value: function render() {
-	        return React.createElement(Hyper, _extends({}, this.props, { customChildren: React.createElement(HyperLine, {
-	            fontFamily: this.props.fontFamily,
-	            colors: this.colors,
-	            plugins: this.plugins
-	          }) }));
-	      }
-	    }]);
-
-	    return _class;
-	  }(Component);
-	}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.hyperline.mapHyperState"></a>[function <span class="apidocSignatureSpan">hyperline.</span>mapHyperState (_ref3, map)](#apidoc.element.hyperline.mapHyperState)
-- description and source-code
-```javascript
-function mapHyperState(_ref3, map) {
-	  var _ref3$ui = _ref3.ui;
-	  var colors = _ref3$ui.colors;
-	  var fontFamily = _ref3$ui.fontFamily;
-	  var hyperline = _ref3$ui.hyperline;
-
-	  return Object.assign({}, map, {
-	    colors: colors,
-	    fontFamily: fontFamily,
-	    hyperline: hyperline
-	  });
-	}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.hyperline.reduceUI"></a>[function <span class="apidocSignatureSpan">hyperline.</span>reduceUI (state, _ref2)](#apidoc.element.hyperline.reduceUI)
-- description and source-code
-```javascript
-function reduceUI(state, _ref2) {
-	  var type = _ref2.type;
-	  var config = _ref2.config;
-
-	  switch (type) {
-	    case 'CONFIG_LOAD':
-	    case 'CONFIG_RELOAD':
-	      {
-	        return state.set('hyperline', config.hyperline);
-	      }
-	  }
-
-	  return state;
-	}
-```
-- example usage
-```shell
-n/a
 ```
 
 

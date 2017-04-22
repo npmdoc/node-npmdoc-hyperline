@@ -79,7 +79,8 @@
         "build": "NODE_ENV=production webpack",
         "dev": "webpack --watch"
     },
-    "version": "0.6.1"
+    "version": "0.6.1",
+    "bin": {}
 }
 ```
 
